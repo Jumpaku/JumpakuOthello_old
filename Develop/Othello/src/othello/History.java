@@ -6,6 +6,14 @@ public class History implements Cloneable {
 
 	private LinkedList<Choice> history_ = new LinkedList<Choice>();
 
+	public void addFirst(Choice choice){
+		history_.addFirst(choice);
+	}
+
+	public void addLast(Choice choice){
+		history_.addLast(choice);
+	}
+
 	public Choice get(int i){
 		return history_.get(i);
 	}
