@@ -1,5 +1,7 @@
 package othello;
 
+import java.util.Objects;
+
 public class Square implements Cloneable {
 
 	public static void main(String[] args) {
@@ -17,7 +19,8 @@ public class Square implements Cloneable {
 		squares[5][4].unput();
 		squares[4][5].put(new Disc(Color.dark()));
 		squares[4][5].reverse();
-		squares[5][5] = squares[0][0].clone();
+		squares[1][1].unput();
+		squares[5][5] = squares[1][1].clone();
 		for(int i = 0; i < 10; ++i){
 			for(int j = 0; j < 10; ++j){
 				System.out.println(squares[i][j] + " : "
@@ -72,9 +75,9 @@ public class Square implements Cloneable {
 	@Override
 	public boolean equals(Object obj) {
 		Square s = (Square)obj;
-		return position_.equals(s.position_) &&
-				((disc_ == null || s.disc_ == null)
-						? disc_ == s.disc_ : disc_.equals(s.disc_));
+		return position_.equals(s.position_) && Objects.equals(disc_, s.disc_);
+				//((disc_ == null || s.disc_ == null)
+				//		? disc_ == s.disc_ : disc_.equals(s.disc_));
 	}
 
 	public void put(Disc d){

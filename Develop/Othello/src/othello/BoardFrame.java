@@ -43,6 +43,10 @@ public class BoardFrame<E> extends AbstractCollection<E>{
 		return new BoardIterator<E>(Position.begin(), this);
 	}
 
+	public BoardIterator<E> iterator(Position p){
+		return new BoardIterator<E>(p.clone(), this);
+	}
+
 	public E get(Position p) {
 		return get(p.i(), p.j());
 	}
