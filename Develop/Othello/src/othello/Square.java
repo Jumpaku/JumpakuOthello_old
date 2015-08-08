@@ -47,6 +47,10 @@ public class Square implements Cloneable {
 		this(p, (Disc)null);
 	}
 
+	public Square(int i, int j){
+		this(new Position(i, j), (Disc)null);
+	}
+
 	public Square(Square s){
 		this(s.position_, s.disc_);
 	}

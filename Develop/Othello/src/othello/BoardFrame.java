@@ -3,7 +3,7 @@ package othello;
 import java.util.AbstractCollection;
 import java.util.ArrayList;
 
-public class BoardFrame<E> extends AbstractCollection<E>implements Cloneable {
+public class BoardFrame<E> extends AbstractCollection<E>{
 
 	public static void main(String[] args) {
 		BoardFrame<Square> squares = new BoardFrame<Square>();
@@ -27,13 +27,13 @@ public class BoardFrame<E> extends AbstractCollection<E>implements Cloneable {
 			}
 	}
 
-	protected ArrayList<ArrayList<E>> board_ = new ArrayList<ArrayList<E>>();
+	protected ArrayList<ArrayList<E>> frame_ = new ArrayList<ArrayList<E>>();
 
 	public BoardFrame() {
 		for(int i = 0; i < 10; ++i){
-			board_.add(new ArrayList<>());
+			frame_.add(new ArrayList<>());
 			for(int j = 0; j < 10; ++j){
-				board_.get(i).add((E)null);
+				frame_.get(i).add((E)null);
 			}
 		}
 	}
@@ -48,7 +48,7 @@ public class BoardFrame<E> extends AbstractCollection<E>implements Cloneable {
 	}
 
 	public E get(int i, int j) {
-		return board_.get(i).get(j);
+		return frame_.get(i).get(j);
 	}
 
 	public void set(Position p, E e){
@@ -56,7 +56,7 @@ public class BoardFrame<E> extends AbstractCollection<E>implements Cloneable {
 	}
 
 	public void set(int i, int j, E e){
-		board_.get(i).set(j, e);
+		frame_.get(i).set(j, e);
 	}
 
 	@Override
