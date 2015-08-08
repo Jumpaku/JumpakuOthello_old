@@ -39,7 +39,7 @@ public class Position implements Cloneable, Comparable<Position> {
 	}
 
 	@Override
-	protected Position clone(){
+	public Position clone(){
 		try {
 			return (Position)super.clone();
 		} catch (CloneNotSupportedException e) {

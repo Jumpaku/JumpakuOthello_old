@@ -111,6 +111,10 @@ public class Square implements Cloneable {
 		return disc_.clone();
 	}
 
+	public Color color(){
+		return disc().color();
+	}
+
 	@Override
 	public String toString() {
 		String p =  position_.toString();

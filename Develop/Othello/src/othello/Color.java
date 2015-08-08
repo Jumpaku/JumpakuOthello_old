@@ -36,8 +36,7 @@ public class Color implements Cloneable{
 	@Override
 	public Color clone(){
 		try{
-			Color copy = (Color) super.clone();
-			return copy;
+			return (Color) super.clone();
 		}
 		catch(CloneNotSupportedException e){
 			e.printStackTrace();

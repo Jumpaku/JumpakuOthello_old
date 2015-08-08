@@ -31,10 +31,9 @@ public class Board extends BoardFrame<Square> implements Cloneable{
 	}
 
 	@Override
-	protected Board clone() {
-		Board b;
+	public Board clone() {
 		try {
-			b = (Board)super.clone();
+			Board b = (Board)super.clone();
 			b.frame_ = new ArrayList<ArrayList<Square>>();
 			for(int i = 0; i < 10; ++i){
 				b.frame_.add(new ArrayList<>());
@@ -42,10 +41,11 @@ public class Board extends BoardFrame<Square> implements Cloneable{
 					b.frame_.get(i).add(frame_.get(i).get(j).clone());
 				}
 			}
+			return b;
 		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
-			b = null;
+			return null;
 		}
-		return b;
 	}
+
 }
