@@ -1,38 +1,23 @@
 package othello;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Board extends BoardFrame<Square> implements Cloneable{
 
 	public static void main(String[] args) {
-		
+
 		Board b1 = new Board();
 		Board b2 = b1.clone();
 		b2.get(4, 3).put(Color.random());
 		for(int i = 1; i <= 8; ++i){
 			System.out.print("|");
 			for(int j = 1; j <= 8; ++j){
-				Square s = b1.frame_.get(i).get(j);
-				System.out.print((s.hasDisc() ? s.disc().color().toString().charAt(0) : " ") + "|");
+				Square s = b1.get(i, j);
+				System.out.print((s.hasDisc() ? s.disc().color().toString() : " ") + "|");
 			}
 			System.out.println();
 		}
-		BoardManager bm = new BoardManager();
-		Choice c = bm.getChoices(Color.dark()).get(0);
-		System.out.println(c);
-		List<Position> r = bm.getReversed(c);
-		bm.putDisc(c);
-		bm.reverseDiscs(r);
-		Board b3 = bm.board();
-		for(int i = 1; i <= 8; ++i){
-			System.out.print("|");
-			for(int j = 1; j <= 8; ++j){
-				Square s = b3.frame_.get(i).get(j);
-				System.out.print((s.hasDisc() ? s.disc().color().toString().charAt(0) : " ") + "|");
-			}
-			System.out.println();
-		}
+
 	}
 
 	public Board() {
@@ -41,10 +26,10 @@ public class Board extends BoardFrame<Square> implements Cloneable{
 				frame_.get(i).set(j, new Square(i, j));
 			}
 		}
-		get(4, 4).put(Color.dark());
-		get(5, 5).put(Color.dark());
-		get(4, 5).put(Color.light());
-		get(5, 4).put(Color.light());
+		get(4, 4).put(Color.black());
+		get(5, 5).put(Color.black());
+		get(4, 5).put(Color.white());
+		get(5, 4).put(Color.white());
 	}
 
 	@Override

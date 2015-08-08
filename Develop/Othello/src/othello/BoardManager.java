@@ -7,13 +7,20 @@ public class BoardManager implements Cloneable {
 
 	public static void main(String[] args) {
 		BoardManager bm = new BoardManager();
-		List<Position> r = bm.getReversed(new Choice(4,3,Color.light()));
-		bm.putDisc(new Choice(4,3,Color.light()));
+		Choice c = bm.getChoices(Color.black()).get(0);
+		System.out.println(c);
+		List<Position> r = bm.getReversed(c);
+		bm.putDisc(c);
 		bm.reverseDiscs(r);
-		for(Position p : r){
-			System.out.println(p);
+		Board b3 = bm.board();
+		for(int i = 1; i <= 8; ++i){
+			System.out.print("|");
+			for(int j = 1; j <= 8; ++j){
+				Square s = b3.get(i, j);
+				System.out.print((s.hasDisc() ? s.disc().color().toString().charAt(0) : " ") + "|");
+			}
+			System.out.println();
 		}
-
 	}
 
 	private Board board_ = new Board();
@@ -53,7 +60,7 @@ public class BoardManager implements Cloneable {
 		if(board_.get(choice.position()).hasDisc()){
 			return reversed;
 		}
-		for(Direction d = Direction.begin(); d != Direction.end(); d = Direction.next(d)){
+		for(Direction d = Direction.begin(); d.compareTo(Direction.end()) < 0; d = Direction.next(d)){
 			List<Position> tmp = new LinkedList<Position>();
 			BoardIterator<Square> itr = board_.iterator(choice.position());
 			itr.move(d);

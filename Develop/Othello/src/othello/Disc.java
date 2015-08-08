@@ -3,18 +3,18 @@ package othello;
 public class Disc implements Cloneable{
 
 	public static void main(String[] args){
-		Disc d = new Disc(Color.dark());
-		Disc l = new Disc(Color.light());
+		Disc d = new Disc(Color.black());
+		Disc l = new Disc(Color.white());
 		Disc x = d.clone();
 		Disc y = new Disc(x);
 		x.reverse();
 		System.out.println(d.equals(l) + " : " + x.color() + " : " + y.color());
 	}
 
-	private Color color_ = Color.dark();
+	private Color color_ = Color.black();
 
 	public Disc(){
-		this(Color.dark());
+		this(Color.black());
 	}
 
 	public Disc(Color c){

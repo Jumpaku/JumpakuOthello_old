@@ -17,7 +17,7 @@ public class Square implements Cloneable {
 			}
 		}
 		squares[5][4].unput();
-		squares[4][5].put(new Disc(Color.dark()));
+		squares[4][5].put(new Disc(Color.black()));
 		squares[4][5].reverse();
 		squares[1][1].unput();
 		squares[5][5] = squares[1][1].clone();
@@ -121,7 +121,7 @@ public class Square implements Cloneable {
 	@Override
 	public String toString() {
 		String p =  position_.toString();
-		String c = disc_ == null ? "null" : disc_.color().toString();
+		String c = disc_ == null ? "N" : disc_.color().toString();
 		return p + "," + c;
 	}
 }

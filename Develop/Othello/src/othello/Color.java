@@ -5,7 +5,7 @@ import java.util.Random;
 public class Color implements Cloneable{
 
 	public static void main(String[] args){
-		Color c1 = new Color(Color.light());
+		Color c1 = new Color(Color.white());
 		Color c2;
 		c2 = c1.clone().reversed();
 		System.out.println(c2.equals(c1));
@@ -15,8 +15,8 @@ public class Color implements Cloneable{
 	}
 
 	private enum C{
-		DARK,
-		LIGHT,
+		BLACK,
+		WHITE,
 	}
 
 	private final C color_;
@@ -30,7 +30,7 @@ public class Color implements Cloneable{
 	}
 
 	public Color() {
-		this(dark());
+		this(black());
 	}
 
 	@Override
@@ -50,24 +50,24 @@ public class Color implements Cloneable{
 	}
 
 	public Color reversed(){
-		return equals(dark()) ? light() : dark();
+		return equals(black()) ? white() : black();
 	}
 
-	public static Color dark(){
-		return new Color(C.DARK);
+	public static Color black(){
+		return new Color(C.BLACK);
 	}
 
-	public static Color light(){
-		return new Color(C.LIGHT);
+	public static Color white(){
+		return new Color(C.WHITE);
 	}
 
 	public static Color random(){
-		return new Random().nextBoolean() ? light() : dark();
+		return new Random().nextBoolean() ? white() : black();
 	}
 
 	@Override
 	public String toString() {
-		return equals(dark()) ? "DARK" : "LIGHT";
+		return equals(black()) ? "B" : "W";
 	}
 
 }

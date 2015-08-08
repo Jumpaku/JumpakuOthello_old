@@ -99,7 +99,7 @@ public class Position implements Cloneable, Comparable<Position> {
 
 	@Override
 	public String toString() {
-		return "(" + i_ + "," + j_ + ")";
+		return i_ + "," + j_;
 	}
 
 	@Override

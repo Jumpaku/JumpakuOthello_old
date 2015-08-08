@@ -16,7 +16,7 @@ public class BoardFrame<E> extends AbstractCollection<E>{
 			s.put(new Disc(Color.random()));
 		}
 		squares.get(5, 4).unput();
-		squares.get(4, 5).put(new Disc(Color.dark()));
+		squares.get(4, 5).put(new Disc(Color.black()));
 		squares.get(4, 5).reverse();
 		squares.set(5, 5, squares.get(0, 0).clone());
 		for(Square s : squares){

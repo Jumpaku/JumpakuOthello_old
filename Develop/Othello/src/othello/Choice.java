@@ -43,9 +43,15 @@ public class Choice implements Cloneable {
 	public Color color(){
 		return color_.clone();
 	}
-	
+
 	@Override
 	public String toString() {
 		return position_.toString() + "," + color_.toString();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Choice c = (Choice)obj;
+		return position_.equals(c.position_) && color_.equals(c.color_);
 	}
 }
