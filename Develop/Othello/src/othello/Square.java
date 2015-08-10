@@ -107,6 +107,14 @@ public class Square implements Cloneable {
 		return position_.clone();
 	}
 
+	public int i(){
+		return position_.i();
+	}
+
+	public int j(){
+		return position_.j();
+	}
+
 	public Disc disc(){
 		if(!hasDisc()){
 			throw new IllegalStateException("cannot return disc because has no disc");
