@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
-public class SampleController implements Initializable{
+public class Controller implements Initializable{
 	@FXML
 	private Button quitButton_;
 
