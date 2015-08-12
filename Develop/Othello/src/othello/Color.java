@@ -4,14 +4,15 @@ import java.util.Random;
 
 /**
 *オセロの色(白か黒) Color of othello.<br>
-*オセロの色,必ず白か黒の2色うちのどちらかとなる.<br>
+*白か黒のどちらかを表す.<br>
+*{@link Color}は不変です.
 *{@link Color#black()}または{@link Color#white()}を使って色を得る事ができる.<br>
-*コンストラクタで色を指定しない場合は黒となる.
-*Color in othello must be black or white.<br>
+*コンストラクタで色を指定しない場合は黒となる.<br>
+*Color expresses black or white.<br>
+*{@link Color} is mutable.<br>
 *You can get color using {@link Color#black()} or {@link Color#white()}.<br>
 *{@link Color#Color()} constructs black color.<br>
 *<br>
-*
 *example
 *<pre>
 *{@code
@@ -28,7 +29,7 @@ public static void main(String[] args){
 *}
 *</pre>
 */
-public class Color implements Cloneable{
+public final class Color implements Cloneable{
 
 	/*public static void main(String[] args){
 		Color white = Color.white();
@@ -53,12 +54,22 @@ public class Color implements Cloneable{
 	}
 
 	/**
-	 * カラーオブジェクトを構築する Constructs color.<br>
+	 * 色オブジェクトを構築する Constructs a color object.<br>
 	 * デフォルトでは黒になる.<br>
 	 * Default color is black.<br>
 	 */
 	public Color() {
 		this(black().color_);
+	}
+
+	/**
+	 * カラーオブジェクトをコピーして構築する Constructs color and with copying color.<br>
+	 * {@code null}が渡された時は{@code NullPointerException}が投げられる.<br>
+	 * When {@code color == null}, {@code NullPointerException} is thrown.
+	 * @param color コピー元の色 source color
+	 */
+	public Color(Color color){
+		this(color.color_);
 	}
 
 	/**
@@ -97,10 +108,12 @@ public class Color implements Cloneable{
 	}
 
 	/**
-	 * 反対の色を返す Returns reversed color.
+	 * このオブジェクトと別の色を返す Returns another color.<br>
 	 * このオブジェクトが黒を表しているなら白,白を表しているなら黒を返す.<br>
+	 * このオブジェクト自体は変化しない<br>
 	 * If this object is white, it returns black object.<br>
 	 * If this object is black, it returns white object.<br>
+	 * This objects is mutable.<br>
 	 * @return {@code equals(black()) ? white() : black()}
 	 * @see Color#black()
 	 * @see Color#white()

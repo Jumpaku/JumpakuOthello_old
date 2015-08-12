@@ -7,7 +7,7 @@ public class Position implements Cloneable, Comparable<Position> {
 
 		Position p2 = end();
 		System.out.println(p1.compareTo(p2) + " : " + p1.equals(p2));
-		for(Direction d = Direction.begin(); d != Direction.end(); d = Direction.next(d)){
+		for(Direction d : Direction.values()){
 			System.out.println(d.name() + "\t : " + p1.moved(d));
 		}
 		for(Position p = begin(); p.compareTo(end()) < 0; p = p.next()){

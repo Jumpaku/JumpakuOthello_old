@@ -60,7 +60,7 @@ public class BoardManager implements Cloneable {
 		if(board_.get(choice.position()).hasDisc()){
 			return reversed;
 		}
-		for(Direction d = Direction.begin(); d.compareTo(Direction.end()) < 0; d = Direction.next(d)){
+		for(Direction d : Direction.values()){
 			List<Position> tmp = new LinkedList<Position>();
 			BoardIterator<Square> itr = board_.iterator(choice.position());
 			itr.move(d);
