@@ -24,7 +24,9 @@ public class BoardFrame<E> extends AbstractCollection<E>{
 					+ s.equals(squares.get(1, 1))
 					+ " : " + squares.get(8, 9).equals(s)
 					+ " : " + s.hasDisc());
-			}
+		}
+		System.out.println(squares.get(0, 1));
+
 	}
 
 	protected ArrayList<ArrayList<E>> frame_ = new ArrayList<ArrayList<E>>();

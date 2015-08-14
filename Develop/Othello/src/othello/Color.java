@@ -13,10 +13,11 @@ import java.util.Random;
 *You can get color using {@link Color#black()} or {@link Color#white()}.<br>
 *{@link Color#Color()} constructs black color.<br>
 *<br>
-*example
+*<br>
+*sample<br>
+*source :
 *<pre>
 *{@code
-public static void main(String[] args){
 	Color white = Color.white();
 	Color black = Color.black();
 	System.out.println(white + " : " + black); // W : B
@@ -25,9 +26,12 @@ public static void main(String[] args){
 	for(int i = 0; i < 10; ++i){ // BBWBBWWBBB
 		System.out.print(Color.random());
 	}
-}
 *}
 *</pre>
+*output :
+*W : B
+*true
+*BBWBBWWBBB
 */
 public final class Color implements Cloneable{
 
