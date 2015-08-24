@@ -31,7 +31,7 @@ public class Othello implements Cloneable {
 
 	public int count(Color c){
 		return (int) boardManager_.board()
-				.stream().filter((s)->{return s.hasDisc() && s.color().equals(c);}).count();
+				.stream().filter((s)->{return (!s.isEmpty()) && s.color().equals(c);}).count();
 	}
 
 	public Board board(){

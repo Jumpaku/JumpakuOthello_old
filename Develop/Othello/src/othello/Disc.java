@@ -54,6 +54,7 @@ public class Disc implements Cloneable{
 	 * Color of this object is set to argument color.<br>
 	 * When {@code color == null}, {@code NullPointerException} is thrown.
 	 * @param color ê›íËÇ∑ÇÈêF color to set
+	 * @throws NullPointerException {@code color == null}ÇÃéû when {@code color == null}
 	 */
 	public Disc(Color color){
 		color_ = new Color(color);

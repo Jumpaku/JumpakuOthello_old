@@ -5,9 +5,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.paint.Color;
 
-import othello.Board;
+import othello.BoardIterator;
 import othello.Choice;
 import othello.Othello;
+import othello.Position;
 import othello.Square;
 
 public class OthelloGame {
@@ -44,12 +45,14 @@ public class OthelloGame {
 	}
 
 	private void renderBoard(){
-		Board board = othello_.board();
-		for(Square s : board){
-			if(s.hasDisc()){
+		BoardIterator<Square> itr = othello_.board().iterator();
+		while(itr.hasNext()){
+			Position p = itr.position();
+			Square s = itr.next();
+			if(!s.isEmpty()){
 				Color color = s.color().equals(othello.Color.black()) ?
 						Color.BLACK : Color.WHITE;
-				boardPane_.add(new Circle(22.0, color),	s.i() - 1, s.j() - 1);
+				boardPane_.add(new Circle(22.0, color),	p.i() - 1, p.j() - 1);
 			}
 		}
 	}

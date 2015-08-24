@@ -13,7 +13,7 @@ public class Board extends BoardFrame<Square> implements Cloneable{
 			System.out.print("|");
 			for(int j = 1; j <= 8; ++j){
 				Square s = b1.get(i, j);
-				System.out.print((s.hasDisc() ? s.disc().color().toString() : " ") + "|");
+				System.out.print((!s.isEmpty() ? s.disc().color().toString() : " ") + "|");
 			}
 			System.out.println();
 		}
@@ -23,7 +23,7 @@ public class Board extends BoardFrame<Square> implements Cloneable{
 	public Board() {
 		for(int i = 0; i < 10; ++i){
 			for(int j = 0; j < 10; ++j){
-				frame_.get(i).set(j, new Square(i, j));
+				frame_.get(i).set(j, new Square());
 			}
 		}
 		get(4, 4).put(Color.black());

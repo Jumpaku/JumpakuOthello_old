@@ -12,12 +12,12 @@ public class BoardManager implements Cloneable {
 		List<Position> r = bm.getReversed(c);
 		bm.putDisc(c);
 		bm.reverseDiscs(r);
-		Board b3 = bm.board();
+		Board b = bm.board();
 		for(int i = 1; i <= 8; ++i){
 			System.out.print("|");
 			for(int j = 1; j <= 8; ++j){
-				Square s = b3.get(i, j);
-				System.out.print((s.hasDisc() ? s.disc().color().toString().charAt(0) : " ") + "|");
+				Square s = b.get(i, j);
+				System.out.print((!s.isEmpty() ? s.disc().color().toString().charAt(0) : " ") + "|");
 			}
 			System.out.println();
 		}
@@ -45,8 +45,14 @@ public class BoardManager implements Cloneable {
 
 	public List<Choice> getChoices(Color color){
 		List<Choice> choices = new LinkedList<Choice>();
-		for(Square s : board_){
+		/*for(Square s : board_){
 			Choice choice = new Choice(s.position(), color);
+			if(!getReversed(choice).isEmpty()){
+				choices.add(choice);
+			}
+		}*/
+		for(BoardIterator<Square> itr = board_.iterator(); itr.hasNext(); itr.next()){
+			Choice choice = new Choice(itr.position(), color);
 			if(!getReversed(choice).isEmpty()){
 				choices.add(choice);
 			}
@@ -57,16 +63,16 @@ public class BoardManager implements Cloneable {
 
 	public List<Position> getReversed(Choice choice){
 		List<Position> reversed = new LinkedList<Position>();
-		if(board_.get(choice.position()).hasDisc()){
+		if(!board_.get(choice.position()).isEmpty()){
 			return reversed;
 		}
 		for(Direction d : Direction.values()){
 			List<Position> tmp = new LinkedList<Position>();
 			BoardIterator<Square> itr = board_.iterator(choice.position());
 			itr.move(d);
-			while(itr.element().hasDisc()){
+			while(!itr.element().isEmpty()){
 				if(itr.element().color().equals(choice.color().reversed())){
-					tmp.add(itr.element().position());
+					tmp.add(itr.position());
 				}
 				else {
 					reversed.addAll(tmp);

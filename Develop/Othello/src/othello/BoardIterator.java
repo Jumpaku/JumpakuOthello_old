@@ -37,6 +37,10 @@ public class BoardIterator<E> implements Iterator<E>{
 		position_ = position_.moved(d);
 		return e;
 	}
+	
+	public Position position(){
+		return position_.clone();
+	}
 
 	public E element(){
 		return board_.get(position_);

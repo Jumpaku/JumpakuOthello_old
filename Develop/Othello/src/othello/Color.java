@@ -67,10 +67,11 @@ public final class Color implements Cloneable{
 	}
 
 	/**
-	 * カラーオブジェクトをコピーして構築する Constructs color and with copying color.<br>
+	 * カラーオブジェクトをコピーして構築する Constructs color with copying.<br>
 	 * {@code null}が渡された時は{@code NullPointerException}が投げられる.<br>
 	 * When {@code color == null}, {@code NullPointerException} is thrown.
 	 * @param color コピー元の色 source color
+	 * @throws NullPointerException {@code color == null}の時 when {@code color == null}
 	 */
 	public Color(Color color){
 		this(color.color_);

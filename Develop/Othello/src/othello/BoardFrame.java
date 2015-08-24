@@ -9,13 +9,13 @@ public class BoardFrame<E> extends AbstractCollection<E>{
 		BoardFrame<Square> squares = new BoardFrame<Square>();
 		for(int i = 0; i < 10; ++i){
 			for(int j = 0; j < 10; ++j){
-				squares.set(i, j, new Square(new Position(i, j)));
+				squares.set(i, j, new Square());
 			}
 		}
 		for(Square s : squares){
 			s.put(new Disc(Color.random()));
 		}
-		squares.get(5, 4).unput();
+		squares.get(5, 4).remove();
 		squares.get(4, 5).put(new Disc(Color.black()));
 		squares.get(4, 5).reverse();
 		squares.set(5, 5, squares.get(0, 0).clone());
@@ -23,7 +23,7 @@ public class BoardFrame<E> extends AbstractCollection<E>{
 			System.out.println(s + " : "
 					+ s.equals(squares.get(1, 1))
 					+ " : " + squares.get(8, 9).equals(s)
-					+ " : " + s.hasDisc());
+					+ " : " + !s.isEmpty());
 		}
 		System.out.println(squares.get(0, 1));
 
