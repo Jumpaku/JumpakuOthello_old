@@ -14,14 +14,12 @@ package othello;
  * example
  * <pre>
  * {@code
-public static void main(String[] args){
 	Disc d = new Disc(Color.black());
 	Disc l = new Disc(Color.white());
 	Disc x = d.clone();
 	x.reverse();
 	System.out.println(d.color() + " : " + l.color());// B : W
 	System.out.println(x.equals(l));// true
-}
  * }
  * </pre>
  */
