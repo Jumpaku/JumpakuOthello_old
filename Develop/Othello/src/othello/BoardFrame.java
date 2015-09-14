@@ -33,8 +33,11 @@ import java.util.ArrayList;
 		}
 		System.out.println();
 	}
+ * }
  * </pre>
  * output : <br>
+ *
+ * @param <E> Class of element
  */
 public class BoardFrame<E> extends AbstractCollection<E>{
 
@@ -58,12 +61,14 @@ public class BoardFrame<E> extends AbstractCollection<E>{
 	}*/
 
 	/**
-	 *
+	 * ボードの2次元配列 grid of board.
 	 */
 	protected ArrayList<ArrayList<E>> frame_ = new ArrayList<ArrayList<E>>();
 
 	/**
-	 * ボードを構築する Constructs board.
+	 * ボードを構築する Constructs board.<br>
+	 * 全ての要素が<code>null</code>にする<br>
+	 * It initializes all element as <code>null</code>
 	 */
 	public BoardFrame() {
 		for(int i = 0; i < 10; ++i){

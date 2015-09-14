@@ -2,24 +2,47 @@ package othello;
 
 import java.util.ArrayList;
 
+/**
+ * オセロボード othello board.<br>
+ * <br>
+ * example<br>
+ * source : <br>
+ * <pre>
+ * {@code
+	Board board = new Board();
+	for(int i = 1; i <= 8; ++i){
+		System.out.print("|");
+		for(int j = 1; j <= 8; ++j){
+			Square s = board.get(i, j);
+			System.out.print((!s.isEmpty() ? s.color() : " ") + "|");
+		}
+		System.out.println();
+	}
+ * }
+ * </pre>
+ * output : <br>
+ */
 public class Board extends BoardFrame<Square> implements Cloneable{
 
-	public static void main(String[] args) {
-
-		Board b1 = new Board();
-		Board b2 = b1.clone();
-		b2.get(4, 3).put(Color.random());
+	/*public static void main(String[] args) {
+		Board board = new Board();
 		for(int i = 1; i <= 8; ++i){
 			System.out.print("|");
 			for(int j = 1; j <= 8; ++j){
-				Square s = b1.get(i, j);
-				System.out.print((!s.isEmpty() ? s.disc().color().toString() : " ") + "|");
+				Square s = board.get(i, j);
+				System.out.print((!s.isEmpty() ? s.color() : " ") + "|");
 			}
 			System.out.println();
 		}
+	}*/
 
-	}
-
+	/**
+	 * オセロボードを初期化する Initializes othello board.<br>
+	 * 全ての要素に空のマスをセットし,中央の4マスに石を置く.<br>
+	 * この石は(4,4),(5,5)が黒,(4,5),(5,4)が白である.<br>
+	 * It sets empty squares to all element, and puts 4 discs on center squares.<br>
+	 * Discs at (4,4) and (5,5) is black, at (4,5),(5,4) is white.
+	 */
 	public Board() {
 		for(int i = 0; i < 10; ++i){
 			for(int j = 0; j < 10; ++j){
@@ -32,6 +55,10 @@ public class Board extends BoardFrame<Square> implements Cloneable{
 		get(5, 4).put(Color.white());
 	}
 
+	/**
+	 * 選択オブジェクトのクローンを生成する Creates clone of this board object.<br>
+	 * @return 選択オブジェクトのクローン Clone of this board
+	 */
 	@Override
 	public Board clone() {
 		try {

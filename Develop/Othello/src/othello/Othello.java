@@ -7,7 +7,6 @@ public class Othello implements Cloneable {
 	public static void main(String[] args) {
 		Othello o = new Othello();
 		System.out.println(o.count(Color.black()));
-
 	}
 
 	private History history_ = new History();
