@@ -9,7 +9,7 @@ import java.util.Random;
 *{@link Color#black()}または{@link Color#white()}を使って色を得る事ができる.<br>
 *コンストラクタで色を指定しない場合は黒となる.<br>
 *Color expresses black or white.<br>
-*{@link Color} is mutable.<br>
+*{@link Color} is immutable.<br>
 *You can get color using {@link Color#black()} or {@link Color#white()}.<br>
 *{@link Color#Color()} constructs black color.<br>
 *<br>
@@ -118,7 +118,7 @@ public final class Color implements Cloneable{
 	 * このオブジェクト自体は変化しない<br>
 	 * If this object is white, it returns black object.<br>
 	 * If this object is black, it returns white object.<br>
-	 * This objects is mutable.<br>
+	 * This objects is immutable.<br>
 	 * @return {@code equals(black()) ? white() : black()}
 	 * @see Color#black()
 	 * @see Color#white()

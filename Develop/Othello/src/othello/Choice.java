@@ -3,7 +3,7 @@ package othello;
 /**
  * どのマスに何色の石を置くかという選択を表す Choice of putting disc (where and which color).<br>
  * Choiceは不変.<br>
- * Choice is mutable.<br>
+ * Choice is immutable.<br>
  * <br>
  * <br>
  * example<br>
