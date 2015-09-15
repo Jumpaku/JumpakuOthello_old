@@ -1,12 +1,34 @@
 package othello;
 
-import java.util.Collections;
 import java.util.List;
 
 /**
  * オセロの1試合を全て管理する Othello controls all of a othello game.
  * 終了判定やターンの制御,ボードの管理などをすべて行う.<br>
  * It controls closing detection, controls turn transition, manages board.<br>
+ * <br>
+ * example<br>
+ * source : <br>
+ * <pre>
+ * {@code
+	Othello o = new Othello();
+	while(!o.hasFinished()){
+		List<Choice> choices = o.getChoices();
+		Collections.shuffle(choices);
+		o.play(choices.get(0));
+	}
+	for(int i = 1; i <= 8; ++i){
+		System.out.print("|");
+		for(int j = 1; j <= 8; ++j){
+			Square s = o.board().get(i,j);
+			System.out.print((s.isEmpty() ? " " : s.color()) + "|");
+		}
+		System.out.println();
+	}
+ * }
+ * </pre>
+ * output : <br>
+
  */
 public class Othello implements Cloneable {
 
@@ -16,14 +38,14 @@ public class Othello implements Cloneable {
 			List<Choice> choices = o.getChoices();
 			Collections.shuffle(choices);
 			o.play(choices.get(0));
-			for(int i = 1; i <= 8; ++i){
-				System.out.print("|");
-				for(int j = 1; j <= 8; ++j){
-					Square s = o.board().get(i,j);
-					System.out.print((s.isEmpty() ? " " : s.color()) + "|");
-				}
-				System.out.println();
+		}
+		for(int i = 1; i <= 8; ++i){
+			System.out.print("|");
+			for(int j = 1; j <= 8; ++j){
+				Square s = o.board().get(i,j);
+				System.out.print((s.isEmpty() ? " " : s.color()) + "|");
 			}
+			System.out.println();
 		}
 	}*/
 
