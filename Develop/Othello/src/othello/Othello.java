@@ -1,5 +1,6 @@
 package othello;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -9,10 +10,22 @@ import java.util.List;
  */
 public class Othello implements Cloneable {
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		Othello o = new Othello();
-		System.out.println(o.count(Color.black()));
-	}
+		while(!o.hasFinished()){
+			List<Choice> choices = o.getChoices();
+			Collections.shuffle(choices);
+			o.play(choices.get(0));
+			for(int i = 1; i <= 8; ++i){
+				System.out.print("|");
+				for(int j = 1; j <= 8; ++j){
+					Square s = o.board().get(i,j);
+					System.out.print((s.isEmpty() ? " " : s.color()) + "|");
+				}
+				System.out.println();
+			}
+		}
+	}*/
 
 	private History history_ = new History();
 
