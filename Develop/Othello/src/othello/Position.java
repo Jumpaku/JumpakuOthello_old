@@ -49,7 +49,7 @@ package othello;
  */
 public final class Position implements Cloneable, Comparable<Position> {
 
-	public static void main(String[] args){
+	/*public static void main(String[] args){
 		Position x = new Position(3, 6);
 		Position y = x.clone();
 		Position z = new Position(7, 4);
@@ -65,7 +65,7 @@ public final class Position implements Cloneable, Comparable<Position> {
 		for(Position i = Position.begin(); i.compareTo(Position.end()) < 0; i = i.next()){
 			System.out.print("(" + i + ")");
 		}
-	}
+	}*/
 
 	private final int i_;
 
