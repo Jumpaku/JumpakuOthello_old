@@ -14,9 +14,9 @@ import java.util.Objects;
  * <pre>
  * {@code
 	Color white = Color.white();
-		
+
 	Square s1 = new Square();
-	
+
 	System.out.println(s1.isEmpty() ? "empty" : s1.color());
 	s1.put(white);
 	System.out.println(s1.isEmpty() ? "empty" : s1.color());
@@ -34,11 +34,11 @@ import java.util.Objects;
  */
 public class Square implements Cloneable {
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		Color white = Color.white();
-		
+
 		Square s1 = new Square();
-		
+
 		System.out.println(s1.isEmpty() ? "empty" : s1.color());
 		s1.put(white);
 		System.out.println(s1.isEmpty() ? "empty" : s1.color());
@@ -46,7 +46,7 @@ public class Square implements Cloneable {
 		System.out.println(s1.isEmpty() ? "empty" : s1.color());
 		s1.remove();
 		System.out.println(s1.isEmpty() ? "empty" : s1.color());
-	}
+	}*/
 
 	private Disc disc_ = null;
 

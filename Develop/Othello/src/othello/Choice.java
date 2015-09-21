@@ -27,15 +27,14 @@ package othello;
  */
 public final class Choice implements Cloneable {
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		Choice c1 = new Choice(3, 6, Color.black());
 		System.out.println(c1.position());
 		System.out.println(c1.i());
 		System.out.println(c1.j());
 		System.out.println(c1.color());
 		System.out.println(c1);
-
-	}
+	}*/
 
 	private Position position_;
 

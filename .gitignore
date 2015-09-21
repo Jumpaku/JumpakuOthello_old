@@ -1,2 +1,3 @@
-Develop/Othello/bin
-Develop/Othello/doc
+Develop/Othello/bin/*
+Develop/Sample/bin/*
+Develop/Othello/doc/*
