@@ -1,7 +1,6 @@
 package application;
 
-import javafx.scene.Node;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.paint.Color;
 
@@ -13,46 +12,42 @@ import othello.Square;
 
 public class OthelloGame {
 
-	private final GridPane boardPane_;
+	private final Pane boardPane_;
 
 	private Othello othello_;
 
-	public OthelloGame(GridPane boardPane) {
+	public OthelloGame(Pane boardPane) {
 		boardPane_ = boardPane;
+		start();
 	}
 
 	public void start() {
 		othello_ = new Othello();
-		clearBoard();
 		renderBoard();
 	}
 
-	public void select(int i, int j) {
+	public void select(double i, double j) {
 		if(othello_ != null){
-			Choice choice = new Choice(i, j, othello_.turnColor());
+			Choice choice = new Choice((int)i, (int)j, othello_.turnColor());
 			if(othello_.getChoices().contains(choice)){
 				othello_.play(choice);
-				clearBoard();
 				renderBoard();
 			}
 		}
 	}
 
-	private void clearBoard(){
-		Node tmp = boardPane_.getChildren().get(0);
-		boardPane_.getChildren().clear();
-		boardPane_.getChildren().add(tmp);
-	}
-
 	private void renderBoard(){
 		BoardIterator<Square> itr = othello_.board().iterator();
+		boardPane_.getChildren().clear();
 		while(itr.hasNext()){
 			Position p = itr.position();
 			Square s = itr.next();
 			if(!s.isEmpty()){
 				Color color = s.color().equals(othello.Color.black()) ?
 						Color.BLACK : Color.WHITE;
-				boardPane_.add(new Circle(22.0, color),	p.i() - 1, p.j() - 1);
+				double x = (double)p.j()*50.0 - 25.0;
+				double y = (double)p.i()*50.0 - 25.0;
+				boardPane_.getChildren().add(new Circle(x, y, 23, color));
 			}
 		}
 	}

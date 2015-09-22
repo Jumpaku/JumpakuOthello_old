@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 
 public class Controller implements Initializable{
 	@FXML
@@ -18,7 +18,7 @@ public class Controller implements Initializable{
 	private Button startButton_;
 
 	@FXML
-	private GridPane boardPane_;
+	private Pane boardPane_;
 
 	private OthelloGame game_;
 
@@ -34,8 +34,8 @@ public class Controller implements Initializable{
 
 	@FXML
 	private void select(MouseEvent e){
-		int i = (int) (Math.floor(e.getX()/48.0) + 1.0);
-		int j = (int) (Math.floor(e.getY()/48.0) + 1.0);
+		double j = Math.floor(e.getX()/50.0) + 1.0;
+		double i = Math.floor(e.getY()/50.0) + 1.0;
 		game_.select(i, j);
 	}
 

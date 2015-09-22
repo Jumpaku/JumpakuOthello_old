@@ -4,7 +4,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.VBox?>
 
 <VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
@@ -14,27 +13,6 @@
             <Button fx:id="startButton_" mnemonicParsing="false" onMouseClicked="#start" text="Start" />
          </items>
       </ToolBar>
-      <GridPane fx:id="boardPane_" alignment="CENTER" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#select" prefHeight="384.0" prefWidth="384.0">
-        <columnConstraints>
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="48.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="48.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="48.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="48.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="48.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="48.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="48.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="48.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints prefHeight="48.0" vgrow="SOMETIMES" />
-          <RowConstraints prefHeight="48.0" vgrow="SOMETIMES" />
-          <RowConstraints prefHeight="48.0" vgrow="SOMETIMES" />
-          <RowConstraints prefHeight="48.0" vgrow="SOMETIMES" />
-          <RowConstraints prefHeight="48.0" vgrow="SOMETIMES" />
-          <RowConstraints prefHeight="48.0" vgrow="SOMETIMES" />
-          <RowConstraints prefHeight="48.0" vgrow="SOMETIMES" />
-          <RowConstraints prefHeight="48.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-      </GridPane>
+      <Pane fx:id="boardPane_" onMouseClicked="#select" prefHeight="400.0" prefWidth="400.0" />
    </children>
 </VBox>
