@@ -4,37 +4,37 @@
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.VBox?>
 
 <VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
       <ToolBar>
          <items>
-            <Button fx:id="quitButton_" mnemonicParsing="false" onMouseClicked="#quit" text="Quit" />
-            <Button fx:id="startButton_" mnemonicParsing="false" onMouseClicked="#start" text="Start" />
+            <Button mnemonicParsing="false" onMouseClicked="#quit" text="Quit" />
+            <Button mnemonicParsing="false" onMouseClicked="#start" text="Start" />
          </items>
       </ToolBar>
-      <GridPane fx:id="boardPane_" alignment="CENTER" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#select" prefHeight="384.0" prefWidth="384.0">
-        <columnConstraints>
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="48.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="48.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="48.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="48.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="48.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="48.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="48.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="48.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints prefHeight="48.0" vgrow="SOMETIMES" />
-          <RowConstraints prefHeight="48.0" vgrow="SOMETIMES" />
-          <RowConstraints prefHeight="48.0" vgrow="SOMETIMES" />
-          <RowConstraints prefHeight="48.0" vgrow="SOMETIMES" />
-          <RowConstraints prefHeight="48.0" vgrow="SOMETIMES" />
-          <RowConstraints prefHeight="48.0" vgrow="SOMETIMES" />
-          <RowConstraints prefHeight="48.0" vgrow="SOMETIMES" />
-          <RowConstraints prefHeight="48.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-      </GridPane>
+      <Pane fx:id="boardPane_" onMouseClicked="#select" prefHeight="400.0" prefWidth="400.0">
+         <children>
+            <Pane fx:id="gridPane_" prefHeight="400.0" prefWidth="400.0">
+               <children>
+                  <Line endX="50.0" endY="399.0" startX="50.0" />
+                  <Line endX="100.0" endY="399.0" startX="100.0" />
+                  <Line endX="150.0" endY="399.0" startX="150.0" />
+                  <Line endX="200.0" endY="399.0" startX="200.0" />
+                  <Line endX="250.0" endY="399.0" startX="250.0" />
+                  <Line endX="300.0" endY="399.0" startX="300.0" />
+                  <Line endX="350.0" endY="399.0" startX="350.0" />
+
+                  <Line endX="399.0" endY="50.0" startY="50.0" />
+                  <Line endX="399.0" endY="100.0" startY="100.0" />
+                  <Line endX="399.0" endY="150.0" startY="150.0" />
+                  <Line endX="399.0" endY="200.0" startY="200.0" />
+                  <Line endX="399.0" endY="250.0" startY="250.0" />
+                  <Line endX="399.0" endY="300.0" startY="300.0" />
+                  <Line endX="399.0" endY="350.0" startY="350.0" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
    </children>
 </VBox>
