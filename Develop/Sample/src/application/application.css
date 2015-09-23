@@ -2,5 +2,5 @@
 
 /* Set back ground color of root to green. */
 .root{
-	-fx-background-color: hsba(120,40%,90%,1.0);
+	-fx-background-color: hsba(120, 40%, 90%, 1.0);
 }
