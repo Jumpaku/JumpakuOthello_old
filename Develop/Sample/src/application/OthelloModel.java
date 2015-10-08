@@ -51,8 +51,8 @@ public class OthelloModel {
 	 */
 	public void select(int i, int j) {
 		if(othello_ != null){
-			Choice choice = new Choice(i, j, othello_.turnColor());
-			if(othello_.getChoices().contains(choice)){
+			Choice choice = new Choice(i, j, othello_.getTurnColor());
+			if(othello_.createChoiceList().contains(choice)){
 				othello_.play(choice);
 				view_.update(othello_);
 			}

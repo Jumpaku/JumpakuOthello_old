@@ -45,18 +45,18 @@ public class SimpleView implements OthelloModel.View{
 	 * @param o
 	 */
 	private void draw(Othello o){
-		BoardIterator<Square> itr = o.board().iterator();
+		BoardIterator<Square> itr = o.getBoard().iterator();
 		boardPane_.getChildren().clear();
 		boardPane_.getChildren().add(gridPane_);
 
 		while(itr.hasNext()){
-			Position p = itr.position();
+			Position p = itr.getPosition();
 			Square s = itr.next();
 			if(!s.isEmpty()){
-				Color color = s.color().equals(othello.Color.black()) ?
+				Color color = s.color().equals(othello.Color.black) ?
 						Color.BLACK : Color.WHITE;
-				double x = (double)p.j()*50.0 - 25.0;
-				double y = (double)p.i()*50.0 - 25.0;
+				double x = (double)p.getJ()*50.0 - 25.0;
+				double y = (double)p.getI()*50.0 - 25.0;
 				boardPane_.getChildren().add(new Circle(x, y, 23, color));
 			}
 		}

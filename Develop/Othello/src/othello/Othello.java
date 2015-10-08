@@ -1,5 +1,6 @@
 package othello;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -35,14 +36,14 @@ public class Othello implements Cloneable {
 	/*public static void main(String[] args) {
 		Othello o = new Othello();
 		while(!o.hasFinished()){
-			List<Choice> choices = o.getChoices();
+			List<Choice> choices = o.createChoiceList();
 			Collections.shuffle(choices);
 			o.play(choices.get(0));
 		}
 		for(int i = 1; i <= 8; ++i){
 			System.out.print("|");
 			for(int j = 1; j <= 8; ++j){
-				Square s = o.board().get(i,j);
+				Square s = o.getBoard().get(i,j);
 				System.out.print((s.isEmpty() ? " " : s.color()) + "|");
 			}
 			System.out.println();
@@ -96,9 +97,9 @@ public class Othello implements Cloneable {
 	 * 現在のターンプレイヤの色を返す Returns current turn player's color.<br>
 	 * @return ターンプレイヤの色 turn player's color
 	 */
-	public Color turnColor(){
+	public Color getTurnColor(){
 		if(hasFinished()){
-			throw new IllegalStateException("game has already finished");
+			throw new IllegalStateException("the game has already finished");
 		}
 		return turnColor_;
 	}
@@ -115,7 +116,7 @@ public class Othello implements Cloneable {
 	 * ゲームの履歴を返す Returns history of the game.<br>
 	 * @return ゲームの履歴 history of game
 	 */
-	public History history(){
+	public History getHistory(){
 		return history_.clone();
 	}
 
@@ -123,8 +124,8 @@ public class Othello implements Cloneable {
 	 * 石を置くことのできる選択肢を返す Returns available choices.<br>
 	 * @return 置ける選択肢のリスト list of available choices
 	 */
-	public List<Choice> getChoices(){
-		return boardManager_.createChoiceList(turnColor());
+	public List<Choice> createChoiceList(){
+		return boardManager_.createChoiceList(getTurnColor());
 	}
 
 	/**
@@ -132,7 +133,7 @@ public class Othello implements Cloneable {
 	 * @param choice 置く石の選択
 	 * @return ひっくり返される位置のリスト list of positions
 	 */
-	public List<Position> getReversed(Choice choice){
+	public List<Position> createPositionListToReverse(Choice choice){
 		return boardManager_.createPositionListToReverse(choice);
 	}
 
@@ -144,19 +145,19 @@ public class Othello implements Cloneable {
 	 * @throws IllegalArgumentException 利用可能でない選択をした時 when choice is not available
 	 */
 	public void play(Choice choice){
-		if(!getChoices().contains(choice)){
+		if(!createChoiceList().contains(choice)){
 			throw new IllegalArgumentException("cannot put because choice is not available");
 		}
 
-		List<Position> reversed = getReversed(choice);
+		List<Position> reversed = createPositionListToReverse(choice);
 		boardManager_.putDisc(choice);
 		boardManager_.reverseDiscs(reversed);
 		history_.addLast(choice.clone());
 
 		turnColor_ = turnColor_.reversed();
-		if(getChoices().isEmpty()){
+		if(createChoiceList().isEmpty()){
 			turnColor_ = turnColor_.reversed();
-			if(getChoices().isEmpty()){
+			if(createChoiceList().isEmpty()){
 				hasFinished_ = true;
 			}
 		}

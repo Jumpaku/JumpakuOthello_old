@@ -5,7 +5,7 @@ package othello;
  * オセロの石を表す.<br>
  * オセロの石は黒か白どちらかの色を必ず持つ.<br>
  * {@link Disc#reverse()}で持っている色を白から黒,または黒から白に切り替える事ができる.<br>
- * {@link Disc#color}で持っている色を取得できる.<br>
+ * {@link Disc#getColor}で持っている色を取得できる.<br>
  * Disc expresses disc of othello.<br>
  * Disc has a color which is black or white.<br>
  * The method {@link Disc#reverse()} changes the color of the disc from white into black, or from black into white.
