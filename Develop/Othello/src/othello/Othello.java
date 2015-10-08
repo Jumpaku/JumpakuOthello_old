@@ -80,7 +80,7 @@ public class Othello implements Cloneable {
 	 * @return 指定された色の石の数 number of discs which has the color c
 	 */
 	public int count(Color c){
-		return (int) boardManager_.board()
+		return (int) boardManager_.getBoard()
 				.stream().filter((s)->{return (!s.isEmpty()) && s.color().equals(c);}).count();
 	}
 
@@ -89,7 +89,7 @@ public class Othello implements Cloneable {
 	 * @return 現在のボード current board
 	 */
 	public Board board(){
-		return boardManager_.board();
+		return boardManager_.getBoard();
 	}
 
 	/**
@@ -124,7 +124,7 @@ public class Othello implements Cloneable {
 	 * @return 置ける選択肢のリスト list of available choices
 	 */
 	public List<Choice> getChoices(){
-		return boardManager_.getChoices(turnColor());
+		return boardManager_.createChoiceList(turnColor());
 	}
 
 	/**
@@ -133,7 +133,7 @@ public class Othello implements Cloneable {
 	 * @return ひっくり返される位置のリスト list of positions
 	 */
 	public List<Position> getReversed(Choice choice){
-		return boardManager_.getReversed(choice);
+		return boardManager_.createPositionListToReverse(choice);
 	}
 
 	/**

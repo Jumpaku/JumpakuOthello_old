@@ -61,7 +61,7 @@ public class BoardManager implements Cloneable {
 	 * Returns copy of board.
 	 * @return ボード board
 	 */
-	public Board board(){
+	public Board getBoard(){
 		return board_.clone();
 	}
 
@@ -71,7 +71,7 @@ public class BoardManager implements Cloneable {
 	 * Sets copy of board.<br>
 	 * @param board セットするボード board to set
 	 */
-	public void board(Board board){
+	public void setBoard(Board board){
 		board_ = board.clone();
 	}
 
@@ -102,11 +102,11 @@ public class BoardManager implements Cloneable {
 	 * @param color 置こうとする石の色 color of disc to put
 	 * @return 利用可能な選択のリスト list of available choices
 	 */
-	public List<Choice> getChoices(Color color){
+	public List<Choice> createChoiceList(Color color){
 		List<Choice> choices = new LinkedList<Choice>();
 		for(BoardIterator<Square> itr = board_.iterator(); itr.hasNext(); itr.next()){
 			Choice choice = new Choice(itr.position(), color);
-			if(!getReversed(choice).isEmpty()){
+			if(!createPositionListToReverse(choice).isEmpty()){
 				choices.add(choice);
 			}
 		}
@@ -118,7 +118,7 @@ public class BoardManager implements Cloneable {
 	 * @param choice 置こうとする石の選択 choice to put a disc
 	 * @return ひっくり返す石のリスト list of position to reverse disc
 	 */
-	public List<Position> getReversed(Choice choice){
+	public List<Position> createPositionListToReverse(Choice choice){
 		List<Position> reversed = new LinkedList<Position>();
 		if(!board_.get(choice.position()).isEmpty()){
 			return reversed;
