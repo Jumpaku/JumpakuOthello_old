@@ -125,22 +125,39 @@ public final class Choice implements Cloneable {
 		return position_.toString() + "," + color_.toString();
 	}
 
-	/**
-	 * 他の選択と同じ選択か調べる Indicates whether some other object is equal to this one.<br>
-	 * このオブジェクトと比較するobjは{@link Choice}でなければならない.<br>
-	 * objが{@link Choice}でない時{@link java.lang.ClassCastException}が投げられる.<br>
-	 * {@code obj == null}の時{@code false}を返す.<br>
-	 * Argument obj must be {@link Choice}.<br>
-	 * When obj is not {@link Choice}, {@link java.lang.ClassCastException} is thrown.<br>
-	 * If {@code obj == null}, it returns false.
-	 * @param obj このオブジェクトと比べる選択 the reference object with which to compare.
-	 * @return 同じ選択を表すなら{@code true},違う選択なら{@code false}, {@code true} if this object is the same choice as the obj; {@code false} otherwise.
-	 * @throws java.lang.ClassCastException 引数objが{@link Choice}でない時.
-	 * When obj is not {@link Choice}.
-	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((color_ == null) ? 0 : color_.hashCode());
+		result = prime * result + ((position_ == null) ? 0 : position_.hashCode());
+		return result;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
-		Choice c = (Choice)obj;
-		return position_.equals(c.position_) && color_.equals(c.color_);
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj instanceof Choice)) {
+			return false;
+		}
+		Choice other = (Choice) obj;
+		if (color_ != other.color_) {
+			return false;
+		}
+		if (position_ == null) {
+			if (other.position_ != null) {
+				return false;
+			}
+		} else if (!position_.equals(other.position_)) {
+			return false;
+		}
+		return true;
 	}
+
+
 }

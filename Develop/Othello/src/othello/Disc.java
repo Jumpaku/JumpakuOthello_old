@@ -34,7 +34,7 @@ public class Disc implements Cloneable{
 		System.out.println(x.equals(l));// true
 	}*/
 
-	private Color color_ = Color.black;
+	private Color color_;
 
 	/**
 	 * 石オブジェクトを構築する Constructs disc.<br>
@@ -75,26 +75,6 @@ public class Disc implements Cloneable{
 	}
 
 	/**
-	 * 他の石と色が同じか調べる Indicates whether some other object is same color as this one.<br>
-	 * このオブジェクトと比較するobjは{@link Disc}でなければならない.<br>
-	 * objが{@link Disc}でない時{@link java.lang.ClassCastException}が投げられる.<br>
-	 * {@code obj == null}の時{@code false}を返す.<br>
-	 * Argument obj must be {@link Disc}.<br>
-	 * When obj is not {@link Disc}, {@link java.lang.ClassCastException} is thrown.<br>
-	 * If {@code obj == null}, it returns false.
-	 * @param obj このオブジェクトと比べる石.
-	 * the reference object with which to compare.
-	 * @return 色が同じなら{@code true},違う色なら{@code false}.
-	 * {@code true} if this object has the same color as the obj has; {@code false} otherwise.
-	 * @throws java.lang.ClassCastException 引数objが{@link Color}でない時.
-	 * When obj is not {@link Disc }.
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		return obj == null ? false : color_.equals(((Disc)obj).color());
-	}
-
-	/**
 	 * 石を裏返す Reverses this disc.<br>
 	 * この石が持つ色が白なら黒へ,黒なら白へ換える.<br>
 	 * If this disc has white color, {@link Disc#reverse()} changes into black.<br>
@@ -110,6 +90,32 @@ public class Disc implements Cloneable{
 	 */
 	public Color color(){
 		return color_;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((color_ == null) ? 0 : color_.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj instanceof Disc)) {
+			return false;
+		}
+		Disc other = (Disc) obj;
+		if (color_ != other.color_) {
+			return false;
+		}
+		return true;
 	}
 
 }

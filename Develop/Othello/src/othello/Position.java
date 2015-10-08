@@ -125,24 +125,6 @@ public final class Position implements Cloneable, Comparable<Position> {
 	}
 
 	/**
-	 * 他の位置と同じ位置か調べる Indicates whether some other object is equal to this one.<br>
-	 * このオブジェクトと比較するobjは{@link Position}でなければならない.<br>
-	 * objが{@link Position}でない時{@link java.lang.ClassCastException}が投げられる.<br>
-	 * {@code obj == null}の時{@code false}を返す.<br>
-	 * Argument obj must be {@link Position}.<br>
-	 * When obj is not {@link Position}, {@link java.lang.ClassCastException} is thrown.<br>
-	 * If {@code obj == null}, it returns false.
-	 * @param obj このオブジェクトと比べる位置 the reference object with which to compare.
-	 * @return 同じ位置を表すなら{@code true},違う位置なら{@code false} {@code true} if this object is the same color as the obj; {@code false} otherwise.
-	 * @throws java.lang.ClassCastException 引数objが{@link Position}でない時 When obj is not {@link Position}.
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		Position p = (Position) obj;
-		return p == null ? false : i_ == p.i_ && j_ == p.j_;
-	}
-
-	/**
 	 * 最後の次のダミー位置を返す Returns dummy.
 	 * 最後の位置(8,8)の次のダミー位置(8,9)を返す.<br>
 	 * Returned dummy is next position of last position.<br>
@@ -274,6 +256,36 @@ public final class Position implements Cloneable, Comparable<Position> {
 		}
 
 		return i_ == p.i_ ? j_ - p.j_ : i_ - p.i_;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + i_;
+		result = prime * result + j_;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj instanceof Position)) {
+			return false;
+		}
+		Position other = (Position) obj;
+		if (i_ != other.i_) {
+			return false;
+		}
+		if (j_ != other.j_) {
+			return false;
+		}
+		return true;
 	}
 
 }
