@@ -1,7 +1,5 @@
 package othello;
 
-import java.util.Objects;
-
 /**
  * オセロ盤のマス Square on othello board.<br>
  * マスはそのマスに置かれている石の管理をする<br>
@@ -108,23 +106,6 @@ public class Square implements Cloneable {
 	}
 
 	/**
-	 * 他のマスと同じマスか調べる Indicates whether some other object is equal to this one.<br>
-	 * このオブジェクトと比較するobjは{@link Square}でなければならない.<br>
-	 * objが{@link Square}でない時{@link java.lang.ClassCastException}が投げられる.<br>
-	 * {@code obj == null}の時{@code false}を返す.<br>
-	 * Argument obj must be {@link Square}.<br>
-	 * When obj is not {@link Square}, {@link java.lang.ClassCastException} is thrown.<br>
-	 * If {@code obj == null}, it returns false.
-	 * @param obj このオブジェクトと比べるマス the reference object with which to compare.
-	 * @return 同じマスを表すなら{@code true},違うマスなら{@code false} {@code true} if this object is the same square as the obj; {@code false} otherwise.
-	 * @throws java.lang.ClassCastException 引数objが{@link Square}でない時 when obj is not {@link Square}.
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		return Objects.equals(disc_, ((Square)obj).disc_);
-	}
-
-	/**
 	 * このマスに石を置く Puts a disc on this square.<br>
 	 * {@code d == null}の時{@link NullPointerException}が投げられる<br>
 	 * 既に他の石が置かれている場合新しい方に置き換わる<br>
@@ -191,7 +172,7 @@ public class Square implements Cloneable {
 	 * @return 石のコピー copy of disc
 	 * @throws IllegalStateException 石が無い時 when square is empty
 	 */
-	public Disc disc(){
+	public Disc getDisc(){
 		if(isEmpty()){
 			throw new IllegalStateException("cannot return disc because has no disc");
 		}
@@ -208,6 +189,36 @@ public class Square implements Cloneable {
 	 * @throws IllegalStateException 石が無い時 when square is empty
 	 */
 	public Color color(){
-		return disc().color();
+		return getDisc().getColor();
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((disc_ == null) ? 0 : disc_.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj instanceof Square)) {
+			return false;
+		}
+		Square other = (Square) obj;
+		if (disc_ == null) {
+			if (other.disc_ != null) {
+				return false;
+			}
+		} else if (!disc_.equals(other.disc_)) {
+			return false;
+		}
+		return true;
 	}
 }

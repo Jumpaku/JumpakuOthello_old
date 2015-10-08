@@ -61,7 +61,7 @@ public class BoardManager implements Cloneable {
 	 * Returns copy of board.
 	 * @return ボード board
 	 */
-	public Board board(){
+	public Board getBoard(){
 		return board_.clone();
 	}
 
@@ -71,7 +71,7 @@ public class BoardManager implements Cloneable {
 	 * Sets copy of board.<br>
 	 * @param board セットするボード board to set
 	 */
-	public void board(Board board){
+	public void setBoard(Board board){
 		board_ = board.clone();
 	}
 
@@ -84,7 +84,7 @@ public class BoardManager implements Cloneable {
 	 * @param choice 置く石の選択 choice of disc to put
 	 */
 	public void putDisc(Choice choice){
-		board_.get(choice.position()).put(choice.color());
+		board_.get(choice.getPosition()).put(choice.getColor());
 	}
 
 	/**
@@ -102,11 +102,11 @@ public class BoardManager implements Cloneable {
 	 * @param color 置こうとする石の色 color of disc to put
 	 * @return 利用可能な選択のリスト list of available choices
 	 */
-	public List<Choice> getChoices(Color color){
+	public List<Choice> createChoiceList(Color color){
 		List<Choice> choices = new LinkedList<Choice>();
 		for(BoardIterator<Square> itr = board_.iterator(); itr.hasNext(); itr.next()){
-			Choice choice = new Choice(itr.position(), color);
-			if(!getReversed(choice).isEmpty()){
+			Choice choice = new Choice(itr.getPosition(), color);
+			if(!createPositionListToReverse(choice).isEmpty()){
 				choices.add(choice);
 			}
 		}
@@ -118,18 +118,18 @@ public class BoardManager implements Cloneable {
 	 * @param choice 置こうとする石の選択 choice to put a disc
 	 * @return ひっくり返す石のリスト list of position to reverse disc
 	 */
-	public List<Position> getReversed(Choice choice){
+	public List<Position> createPositionListToReverse(Choice choice){
 		List<Position> reversed = new LinkedList<Position>();
-		if(!board_.get(choice.position()).isEmpty()){
+		if(!board_.get(choice.getPosition()).isEmpty()){
 			return reversed;
 		}
 		for(Direction d : Direction.values()){
 			List<Position> tmp = new LinkedList<Position>();
-			BoardIterator<Square> itr = board_.iterator(choice.position());
+			BoardIterator<Square> itr = board_.iterator(choice.getPosition());
 			itr.move(d);
-			while(!itr.element().isEmpty()){
-				if(itr.element().color().equals(choice.color().reversed())){
-					tmp.add(itr.position());
+			while(!itr.getElement().isEmpty()){
+				if(itr.getElement().color().equals(choice.getColor().reversed())){
+					tmp.add(itr.getPosition());
 				}
 				else {
 					reversed.addAll(tmp);

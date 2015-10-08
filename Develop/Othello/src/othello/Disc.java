@@ -5,11 +5,11 @@ package othello;
  * オセロの石を表す.<br>
  * オセロの石は黒か白どちらかの色を必ず持つ.<br>
  * {@link Disc#reverse()}で持っている色を白から黒,または黒から白に切り替える事ができる.<br>
- * {@link Disc#color}で持っている色を取得できる.<br>
+ * {@link Disc#getColor}で持っている色を取得できる.<br>
  * Disc expresses disc of othello.<br>
  * Disc has a color which is black or white.<br>
  * The method {@link Disc#reverse()} changes the color of the disc from white into black, or from black into white.
- * The method {@link Disc#color()} returns the color of the disc.<br>
+ * The method {@link Disc#getColor()} returns the color of the disc.<br>
  *<br>
  * example
  * <pre>
@@ -34,7 +34,7 @@ public class Disc implements Cloneable{
 		System.out.println(x.equals(l));// true
 	}*/
 
-	private Color color_ = Color.black();
+	private Color color_;
 
 	/**
 	 * 石オブジェクトを構築する Constructs disc.<br>
@@ -42,7 +42,7 @@ public class Disc implements Cloneable{
 	 * Default color of this disc is set into black.
 	 */
 	public Disc(){
-		this(Color.black());
+		this(Color.black);
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class Disc implements Cloneable{
 	 * @throws NullPointerException {@code color == null}の時 when {@code color == null}
 	 */
 	public Disc(Color color){
-		color_ = new Color(color);
+		color_ = color;
 	}
 
 	/**
@@ -67,32 +67,11 @@ public class Disc implements Cloneable{
 		Disc disc;
 		try {
 			disc = (Disc) super.clone();
-			disc.color_ = color_.clone();
 		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
 			disc = null;
 		}
 		return disc;
-	}
-
-	/**
-	 * 他の石と色が同じか調べる Indicates whether some other object is same color as this one.<br>
-	 * このオブジェクトと比較するobjは{@link Disc}でなければならない.<br>
-	 * objが{@link Disc}でない時{@link java.lang.ClassCastException}が投げられる.<br>
-	 * {@code obj == null}の時{@code false}を返す.<br>
-	 * Argument obj must be {@link Disc}.<br>
-	 * When obj is not {@link Disc}, {@link java.lang.ClassCastException} is thrown.<br>
-	 * If {@code obj == null}, it returns false.
-	 * @param obj このオブジェクトと比べる石.
-	 * the reference object with which to compare.
-	 * @return 色が同じなら{@code true},違う色なら{@code false}.
-	 * {@code true} if this object has the same color as the obj has; {@code false} otherwise.
-	 * @throws java.lang.ClassCastException 引数objが{@link Color}でない時.
-	 * When obj is not {@link Disc }.
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		return obj == null ? false : color_.equals(((Disc)obj).color());
 	}
 
 	/**
@@ -109,8 +88,34 @@ public class Disc implements Cloneable{
 	 * この石が持っている色を返す Returns a color of this disc.
 	 * @return 石が持つ色のコピー Copied color of this disc.
 	 */
-	public Color color(){
-		return color_.clone();
+	public Color getColor(){
+		return color_;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((color_ == null) ? 0 : color_.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj instanceof Disc)) {
+			return false;
+		}
+		Disc other = (Disc) obj;
+		if (color_ != other.color_) {
+			return false;
+		}
+		return true;
 	}
 
 }

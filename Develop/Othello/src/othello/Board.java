@@ -49,10 +49,10 @@ public class Board extends BoardFrame<Square> implements Cloneable{
 				frame_.get(i).set(j, new Square());
 			}
 		}
-		get(4, 4).put(Color.black());
-		get(5, 5).put(Color.black());
-		get(4, 5).put(Color.white());
-		get(5, 4).put(Color.white());
+		get(4, 4).put(Color.black);
+		get(5, 5).put(Color.black);
+		get(4, 5).put(Color.white);
+		get(5, 4).put(Color.white);
 	}
 
 	/**

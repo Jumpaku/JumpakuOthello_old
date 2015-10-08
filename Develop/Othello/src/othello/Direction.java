@@ -105,7 +105,7 @@ public enum Direction {
 	 * </table>
 	 * @return ‰¡•ûŒü‚ÌˆÚ“®—Ê movement value of the horizontal direction
 	 */
-	public int movei(){
+	public int getMoveI(){
 		return movei_;
 	}
 
@@ -124,7 +124,7 @@ public enum Direction {
 	 * </table>
 	 * @return c•ûŒü‚ÌˆÚ“®—Ê movement value of the vertical direction
 	 */
-	public int movej(){
+	public int getMoveJ(){
 		return movej_;
 	}
 }
