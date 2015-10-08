@@ -50,7 +50,7 @@ public final class Choice implements Cloneable {
 	 */
 	public Choice(Position p, Color c) {
 		position_ = p.clone();
-		color_ = c.clone();
+		color_ = c;
 	}
 
 	/**
@@ -75,7 +75,6 @@ public final class Choice implements Cloneable {
 		try {
 			Choice c = (Choice) super.clone();
 			c.position_ = position_.clone();
-			c.color_ = color_.clone();
 			return c;
 		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
@@ -112,7 +111,7 @@ public final class Choice implements Cloneable {
 	 * @return 色オブジェクトのコピー copied color
 	 */
 	public Color color(){
-		return color_.clone();
+		return color_;
 	}
 
 	/**

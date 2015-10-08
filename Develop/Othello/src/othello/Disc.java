@@ -34,7 +34,7 @@ public class Disc implements Cloneable{
 		System.out.println(x.equals(l));// true
 	}*/
 
-	private Color color_ = Color.black();
+	private Color color_ = Color.black;
 
 	/**
 	 * 石オブジェクトを構築する Constructs disc.<br>
@@ -42,7 +42,7 @@ public class Disc implements Cloneable{
 	 * Default color of this disc is set into black.
 	 */
 	public Disc(){
-		this(Color.black());
+		this(Color.black);
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class Disc implements Cloneable{
 	 * @throws NullPointerException {@code color == null}の時 when {@code color == null}
 	 */
 	public Disc(Color color){
-		color_ = new Color(color);
+		color_ = color;
 	}
 
 	/**
@@ -67,7 +67,6 @@ public class Disc implements Cloneable{
 		Disc disc;
 		try {
 			disc = (Disc) super.clone();
-			disc.color_ = color_.clone();
 		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
 			disc = null;
@@ -110,7 +109,7 @@ public class Disc implements Cloneable{
 	 * @return 石が持つ色のコピー Copied color of this disc.
 	 */
 	public Color color(){
-		return color_.clone();
+		return color_;
 	}
 
 }

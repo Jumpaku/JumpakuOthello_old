@@ -55,7 +55,7 @@ public class Othello implements Cloneable {
 
 	private boolean hasFinished_ = false;
 
-	private Color turnColor_ = Color.black();
+	private Color turnColor_ = Color.black;
 
 	/**
 	 * オセロを初期化する Initializes othello.<br>
@@ -71,7 +71,7 @@ public class Othello implements Cloneable {
 		history_ = new History();
 		boardManager_ = new BoardManager();
 		hasFinished_ = false;
-		turnColor_ = Color.black();
+		turnColor_ = Color.black;
 	}
 
 	/**
@@ -100,7 +100,7 @@ public class Othello implements Cloneable {
 		if(hasFinished()){
 			throw new IllegalStateException("game has already finished");
 		}
-		return turnColor_.clone();
+		return turnColor_;
 	}
 
 	/**
@@ -141,7 +141,7 @@ public class Othello implements Cloneable {
 	 * <code>choice.position()</code>に石を置いて,相手の石をひっくり返し,ターンプレイヤを交代する.<br>
 	 * Puts disc at <code>choice.position()</code>, reverses opponent's discs, changes turn player.<br>
 	 * @param choice 選択 choice
-	 * @throws  {@link IllegalArgumentException} 利用可能でない選択をした時 when choice is not available
+	 * @throws IllegalArgumentException 利用可能でない選択をした時 when choice is not available
 	 */
 	public void play(Choice choice){
 		if(!getChoices().contains(choice)){
@@ -164,7 +164,7 @@ public class Othello implements Cloneable {
 
 	/**
 	 * nターン巻き戻す Undoes n turns.
-	 * @param n
+	 * @param n ターン数 turns
 	 */
 	public void undo(int n){
 		for(int i = 0; i < n; ++i){
