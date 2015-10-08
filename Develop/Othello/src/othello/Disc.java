@@ -9,7 +9,7 @@ package othello;
  * Disc expresses disc of othello.<br>
  * Disc has a color which is black or white.<br>
  * The method {@link Disc#reverse()} changes the color of the disc from white into black, or from black into white.
- * The method {@link Disc#color()} returns the color of the disc.<br>
+ * The method {@link Disc#getColor()} returns the color of the disc.<br>
  *<br>
  * example
  * <pre>
@@ -88,7 +88,7 @@ public class Disc implements Cloneable{
 	 * この石が持っている色を返す Returns a color of this disc.
 	 * @return 石が持つ色のコピー Copied color of this disc.
 	 */
-	public Color color(){
+	public Color getColor(){
 		return color_;
 	}
 

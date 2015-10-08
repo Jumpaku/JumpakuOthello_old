@@ -88,7 +88,7 @@ public class Othello implements Cloneable {
 	 * 現在のボードを返す Returns current board.<br>
 	 * @return 現在のボード current board
 	 */
-	public Board board(){
+	public Board getBoard(){
 		return boardManager_.getBoard();
 	}
 
@@ -191,7 +191,7 @@ public class Othello implements Cloneable {
 	 * @return パスがあれば真 true if pass occurred
 	 */
 	public boolean wasPassed(){
-		return history_.size() > 2 && history_.getLast().color().equals(turnColor_);
+		return history_.size() > 2 && history_.getLast().getColor().equals(turnColor_);
 	}
 
 }

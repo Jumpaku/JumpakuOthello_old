@@ -86,7 +86,7 @@ public final class Choice implements Cloneable {
 	 * 選択が持つの位置オブジェクトのコピーを返す Returns copied position of this choice.<br>
 	 * @return 位置オブジェクトのコピー copied position
 	 */
-	public Position position(){
+	public Position getPosition(){
 		return position_.clone();
 	}
 
@@ -94,23 +94,23 @@ public final class Choice implements Cloneable {
 	 * 選択が持つの位置の行番号を返す Returns row number of this choice's position.<br>
 	 * @return 位置の行番号 row number of position
 	 */
-	public int i(){
-		return position_.i();
+	public int getI(){
+		return position_.getI();
 	}
 
 	/**
 	 * 選択が持つの位置の列番号を返す Returns column number of this choice's position.<br>
 	 * @return 位置の列番号 column number of position
 	 */
-	public int j(){
-		return position_.j();
+	public int getJ(){
+		return position_.getJ();
 	}
 
 	/**
 	 * 選択が持つの色オブジェクトのコピーを返す Returns copied color of this choice.<br>
 	 * @return 色オブジェクトのコピー copied color
 	 */
-	public Color color(){
+	public Color getColor(){
 		return color_;
 	}
 

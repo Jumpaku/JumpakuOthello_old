@@ -172,7 +172,7 @@ public class Square implements Cloneable {
 	 * @return Î‚ÌƒRƒs[ copy of disc
 	 * @throws IllegalStateException Î‚ª–³‚¢ when square is empty
 	 */
-	public Disc disc(){
+	public Disc getDisc(){
 		if(isEmpty()){
 			throw new IllegalStateException("cannot return disc because has no disc");
 		}
@@ -189,7 +189,7 @@ public class Square implements Cloneable {
 	 * @throws IllegalStateException Î‚ª–³‚¢ when square is empty
 	 */
 	public Color color(){
-		return disc().color();
+		return getDisc().getColor();
 	}
 
 	@Override

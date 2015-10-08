@@ -110,7 +110,7 @@ public class BoardFrame<E> extends AbstractCollection<E>{
 	 * @return ˆÊ’up‚Ì—v‘f element of position p
 	 */
 	public E get(Position p) {
-		return get(p.i(), p.j());
+		return get(p.getI(), p.getJ());
 	}
 
 	/**
@@ -129,7 +129,7 @@ public class BoardFrame<E> extends AbstractCollection<E>{
 	 * @param e —v‘f element to set
 	 */
 	public void set(Position p, E e){
-		set(p.i(), p.j(), e);
+		set(p.getI(), p.getJ(), e);
 	}
 
 	/**

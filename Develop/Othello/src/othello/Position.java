@@ -191,7 +191,7 @@ public final class Position implements Cloneable, Comparable<Position> {
 	 * @param movej 列方向の移動量 amount of vertical movement
 	 * @return 移動させた位置オブジェクト moved position
 	 */
-	public Position moved(int movei, int movej){
+	public Position getMoved(int movei, int movej){
 		return new Position(i_ + movei, j_ + movej);
 	}
 
@@ -206,15 +206,15 @@ public final class Position implements Cloneable, Comparable<Position> {
 	 * @param dir 移動させる方向 direction to move
 	 * @return 移動させた位置オブジェクト moved position
 	 */
-	public Position moved(Direction dir){
-		return moved(dir.movei(), dir.movej());
+	public Position getMoved(Direction dir){
+		return getMoved(dir.getMoveI(), dir.getMoveJ());
 	}
 
 	/**
 	 * 行数であるi成分を返す Returns row number i.
 	 * @return 行数 row number
 	 */
-	public int i(){
+	public int getI(){
 		return i_;
 	}
 
@@ -222,7 +222,7 @@ public final class Position implements Cloneable, Comparable<Position> {
 	 * 列数であるj成分を返す Returns column number j.
 	 * @return 列数 column number
 	 */
-	public int j(){
+	public int getJ(){
 		return j_;
 	}
 

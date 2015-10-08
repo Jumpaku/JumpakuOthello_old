@@ -62,7 +62,7 @@ public class BoardIterator<E> implements Iterator<E>{
 		if(!hasNext()){
 			throw new NoSuchElementException("cannot get next element because does not have next");
 		}
-		E e = element();
+		E e = getElement();
 		position_ = position_.next();
 		return e;
 	}
@@ -78,8 +78,8 @@ public class BoardIterator<E> implements Iterator<E>{
 		if(position_.isEnd()){
 			throw new NoSuchElementException("cannot move because itetator is end");
 		}
-		E e = element();
-		position_ = position_.moved(d);
+		E e = getElement();
+		position_ = position_.getMoved(d);
 		return e;
 	}
 
@@ -87,7 +87,7 @@ public class BoardIterator<E> implements Iterator<E>{
 	 * 現在の位置を返す Returns current position.
 	 * @return 現在の位置 current position
 	 */
-	public Position position(){
+	public Position getPosition(){
 		return position_.clone();
 	}
 
@@ -95,7 +95,7 @@ public class BoardIterator<E> implements Iterator<E>{
 	 * 現在の要素を返す Returns current element.<br>
 	 * @return 現在の要素 current element
 	 */
-	public E element(){
+	public E getElement(){
 		return board_.get(position_);
 	}
 }
